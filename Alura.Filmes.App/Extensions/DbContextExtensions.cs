@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using ILogger = Microsoft.Build.Framework.ILogger;
 
 namespace Alura.Filmes.App.Extensions
 {
@@ -12,9 +13,17 @@ namespace Alura.Filmes.App.Extensions
     {
         internal class SqlServerLogger : ILogger
         {
+            public LoggerVerbosity Verbosity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string Parameters { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
             public IDisposable BeginScope<TState>(TState state)
             {
                 return null;
+            }
+
+            public void Initialize(IEventSource eventSource)
+            {
+                throw new NotImplementedException();
             }
 
             public bool IsEnabled(LogLevel logLevel)
@@ -28,13 +37,26 @@ namespace Alura.Filmes.App.Extensions
                 Console.WriteLine(formatter(state, exception));
                 Console.WriteLine("");
             }
+
+            public void Shutdown()
+            {
+                throw new NotImplementedException();
+            }
         }
 
         internal class NullLogger : ILogger
         {
+            public LoggerVerbosity Verbosity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string Parameters { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
             public IDisposable BeginScope<TState>(TState state)
             {
                 return null;
+            }
+
+            public void Initialize(IEventSource eventSource)
+            {
+                throw new NotImplementedException();
             }
 
             public bool IsEnabled(LogLevel logLevel)
@@ -45,6 +67,11 @@ namespace Alura.Filmes.App.Extensions
             public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
             {
                 //não faz nada
+            }
+
+            public void Shutdown()
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -74,6 +101,11 @@ namespace Alura.Filmes.App.Extensions
             public void Dispose()
             {
 
+            }
+
+            Microsoft.Extensions.Logging.ILogger ILoggerProvider.CreateLogger(string categoryName)
+            {
+                throw new NotImplementedException();
             }
         }
 
