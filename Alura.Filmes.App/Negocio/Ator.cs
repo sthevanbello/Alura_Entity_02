@@ -13,9 +13,5 @@ namespace Alura.Filmes.App.Negocio
         public string UltimoNome { get; set; }
 
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }
