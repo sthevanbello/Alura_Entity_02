@@ -24,7 +24,8 @@ namespace Alura.Filmes.App.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("actor_id");
+                        .HasColumnName("actor_id")
+                        .HasColumnType("int");
 
                     b.Property<string>("PrimeiroNome")
                         .IsRequired()
@@ -35,6 +36,11 @@ namespace Alura.Filmes.App.Migrations
                         .IsRequired()
                         .HasColumnName("last_name")
                         .HasColumnType("varchar(45)");
+
+                    b.Property<DateTime>("last_update")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.HasKey("Id");
 
