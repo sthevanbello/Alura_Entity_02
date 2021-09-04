@@ -24,7 +24,7 @@ namespace Alura.Filmes.App.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("actor_id");
+                        .HasColumnType("actor_id");
 
                     b.Property<string>("PrimeiroNome")
                         .IsRequired()

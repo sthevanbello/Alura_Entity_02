@@ -11,7 +11,7 @@ using System;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(AluraFilmesContexto))]
-    [Migration("20210904181439_Inicial")]
+    [Migration("20210904183741_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Alura.Filmes.App.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("actor_id");
+                        .HasColumnType("actor_id");
 
                     b.Property<string>("PrimeiroNome")
                         .IsRequired()

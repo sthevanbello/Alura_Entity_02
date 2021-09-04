@@ -13,14 +13,14 @@ namespace Alura.Filmes.App.Migrations
                 name: "actor",
                 columns: table => new
                 {
-                    actor_id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "actor_id", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     first_name = table.Column<string>(type: "varchar(45)", nullable: false),
                     last_name = table.Column<string>(type: "varchar(45)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_actor", x => x.actor_id);
+                    table.PrimaryKey("PK_actor", x => x.Id);
                 });
         }
 
