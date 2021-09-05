@@ -135,6 +135,8 @@
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\Filme.cs" />
+    <Compile Include="Negocio\FilmeAtor.cs" />
+    <Compile Include="Negocio\FilmeAtorConfiguration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

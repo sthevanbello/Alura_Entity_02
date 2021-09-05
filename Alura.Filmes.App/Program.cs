@@ -13,32 +13,24 @@ namespace Alura.Filmes.App
         {
             using (var contexto = new AluraFilmesContexto())
             {
-                //contexto.LogSQLToConsole();
-
-                //var atores = contexto.Atores.OrderByDescending(a => EF.Property<DateTime>(a, "last_update")).Take(10);
-
-                //ListaAtores(atores, contexto);
 
                 var filmes = contexto.Filmes.ToList();
+                var elenco = contexto.Elenco.ToList();
 
-                foreach (var filme in filmes)
+                foreach (var atorElenco in elenco)
                 {
-                    Console.WriteLine(filme);
+                    var entidade = contexto.Entry(atorElenco);
+                    var filmId = entidade.Property("film_id").CurrentValue;
+                    var atorId = entidade.Property("actor_id").CurrentValue;
+                    var lastUpdate = entidade.Property("last_update").CurrentValue; 
+                     
+                    Console.WriteLine($"{filmId} {atorId} {entidade} {lastUpdate}");
                 }
                 
             }
             Console.ReadKey();
         }
 
-        private static void ListaAtores(IQueryable<Ator> atores, AluraFilmesContexto contexto)
-        {
-            foreach (var ator in atores)
-            {
-                Console.WriteLine($"{ator} - {contexto.Entry(ator).Property("last_update").CurrentValue}");
-            }
-        }
-
-
-
+       
     }
 }
