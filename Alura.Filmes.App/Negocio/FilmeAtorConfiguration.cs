@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Alura.Filmes.App.Negocio
 {
-    // Configurar a classe FilmeAtor
+    // Configurar a classe FilmeAtor para fazer o relacionamento da classe Filme com a classe Ator
     public class FilmeAtorConfiguration : IEntityTypeConfiguration<FilmeAtor>
     {
         public void Configure(EntityTypeBuilder<FilmeAtor> builder)
