@@ -18,6 +18,8 @@ namespace Alura.Filmes.App.Negocio
             builder.Property<int>("actor_id");
             builder.Property<DateTime>("last_update").HasColumnType("datetime").HasDefaultValueSql("getdate()").IsRequired();
             builder.HasKey("film_id", "actor_id");
+            builder.HasOne(fa => fa.Filme).WithMany(f => f.Atores).HasForeignKey("film_id");
+            builder.HasOne(fa => fa.Ator).WithMany(f => f.Filmografia).HasForeignKey("actor_id");
         }
     }
 }
