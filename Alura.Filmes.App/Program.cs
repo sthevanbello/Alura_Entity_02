@@ -26,9 +26,15 @@ namespace Alura.Filmes.App
                 var filme = contexto.Filmes.Include(f => f.Atores).ThenInclude(fa => fa.Ator).First();
                 var atores = filme.Atores;
 
+                var categoria = contexto.Categorias.Include(f => f.Filmes).ThenInclude(fc => fc.Filme).First();
+                var categorias = categoria.Filmes;
+
                 Console.WriteLine(filme);
+                Console.WriteLine(categoria);
                 Console.WriteLine("Elenco:");
                 GetAtores(atores);
+
+               
 
             }
             Console.ReadKey();
