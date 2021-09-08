@@ -11,7 +11,7 @@ namespace Alura.Filmes.App.Dados
         public DbSet<FilmeAtor> Elenco { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<FilmeCategoria> FilmeCategoria { get; set; }
-
+        public DbSet<Idioma> Idiomas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -15,27 +15,13 @@ namespace Alura.Filmes.App
             using (var contexto = new AluraFilmesContexto())
             {
                 contexto.LogSQLToConsole();
-                //var filmes = contexto.Filmes.ToList();
 
+                var idiomas = contexto.Idiomas;
 
-                //var elenco = contexto.Elenco.ToList();
-                //GetFilmeAtor(contexto, elenco);
-                //GetFilmes(filmes);
-
-
-                var filme = contexto.Filmes.Include(f => f.Atores).ThenInclude(fa => fa.Ator).First();
-                var atores = filme.Atores;
-
-                var categoria = contexto.Categorias.Include(f => f.Filmes).ThenInclude(fc => fc.Filme).First();
-                var categorias = categoria.Filmes;
-
-                Console.WriteLine(filme);
-                Console.WriteLine(categoria);
-                Console.WriteLine("Elenco:");
-                GetAtores(atores);
-
-               
-
+                foreach (var idioma in idiomas)
+                {
+                    Console.WriteLine(idioma);
+                }
             }
             Console.ReadKey();
         }
