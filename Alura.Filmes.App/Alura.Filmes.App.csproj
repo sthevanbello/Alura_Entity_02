@@ -129,6 +129,7 @@
     <Compile Include="Dados\CategoriaConfiguration.cs" />
     <Compile Include="Dados\FilmeCategoriaConfiguration.cs" />
     <Compile Include="Dados\FilmeConfiguration.cs" />
+    <Compile Include="Dados\IdiomaConfiguration.cs" />
     <Compile Include="Negocio\Idioma.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20210904194820_Inicial.cs" />
