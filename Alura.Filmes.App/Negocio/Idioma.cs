@@ -6,6 +6,9 @@
         public byte Id { get; set; }
         public string Nome { get; set; }
 
-
+        public override string ToString()
+        {
+            return $"Id_Idioma: ({Id}) Idioma: {Nome}";
+        }
     }
 }
