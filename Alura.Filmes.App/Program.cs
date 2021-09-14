@@ -23,6 +23,12 @@ namespace Alura.Filmes.App
                 foreach (var idioma in idiomas)
                 {
                     Console.WriteLine(idioma);
+
+                    foreach (var filme in idioma.FilmesFalados)
+                    {
+                        Console.WriteLine(filme);
+                    }
+                    Console.WriteLine("====================================");
                 }
                 //foreach (var filme in filmes)
                 //{
