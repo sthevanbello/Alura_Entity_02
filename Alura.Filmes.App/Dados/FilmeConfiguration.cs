@@ -19,10 +19,11 @@ namespace Alura.Filmes.App.Dados
             // Criação de um valor padrão para a Shadow Property last_update (Só existe no banco e é gerada automaticamente)
             builder.Property<DateTime>("last_update").HasColumnType("datetime").HasDefaultValueSql("getdate()").IsRequired();
 
-            builder.Property<byte>("language_id");
-            builder.Property<byte>("original_language_id");
+            builder.Property<byte>("language_id").IsRequired();
+            // A tabela de filme possui o campo original_language_id como byte e pode conter valor nulo 'byte?'
+            builder.Property<byte?>("original_language_id");
 
-            builder.HasOne(f => f.IdiomaFalado).WithMany(f => f.FilmesFalados).HasForeignKey("language_id");
+            builder.HasOne(f => f.IdiomaFalado).WithMany(f => f.FilmesFalados).HasForeignKey("language_id").IsRequired();
             builder.HasOne(f => f.IdiomaOriginal).WithMany(i => i.FilmesOriginais).HasForeignKey("original_language_id");
         }
     }
