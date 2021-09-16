@@ -146,6 +146,11 @@
     <Compile Include="Migrations\20210916214539_Classificacao.designer.cs">
       <DependentUpon>20210916214539_Classificacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210916221717_FilmeCheckConstraint.cs" />
+    <Compile Include="Migrations\20210916221717_FilmeCheckConstraint.designer.cs">
+      <DependentUpon>20210916221717_FilmeCheckConstraint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\ClassificacaoIndicativa.cs" />
     <Compile Include="Negocio\Idioma.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20210904194820_Inicial.cs" />
