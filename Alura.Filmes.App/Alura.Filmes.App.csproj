@@ -134,6 +134,10 @@
     <Compile Include="Migrations\20210914225526_FilmeIdioma.designer.cs">
       <DependentUpon>20210914225526_FilmeIdioma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210916205504_IndiceAtor.cs" />
+    <Compile Include="Migrations\20210916205504_IndiceAtor.designer.cs">
+      <DependentUpon>20210916205504_IndiceAtor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negocio\Idioma.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20210904194820_Inicial.cs" />

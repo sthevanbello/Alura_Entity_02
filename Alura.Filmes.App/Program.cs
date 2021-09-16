@@ -14,27 +14,17 @@ namespace Alura.Filmes.App
         {
             using (var contexto = new AluraFilmesContexto())
             {
+
                 contexto.LogSQLToConsole();
 
-                var idiomas = contexto.Idiomas.Include(i => i.FilmesFalados);
-                var filmes = contexto.Filmes.Include(i => i.IdiomaFalado);
-                //var idiomas = contexto.Idiomas;
+                var ator1 = new Ator { PrimeiroNome = "Emma", UltimoNome = "Watson" };
+                var ator2 = new Ator { PrimeiroNome = "Emma", UltimoNome = "Watson" };
+                contexto.Atores.AddRange(ator1, ator2);
+                contexto.SaveChanges();
 
-                foreach (var idioma in idiomas)
-                {
-                    Console.WriteLine(idioma);
-
-                    foreach (var filme in idioma.FilmesFalados)
-                    {
-                        Console.WriteLine(filme);
-                    }
-                    Console.WriteLine("====================================");
-                }
-                //foreach (var filme in filmes)
-                //{
-                //    Console.WriteLine(filme);
-                //    Console.WriteLine(filme.IdiomaFalado);
-                //}
+                var emmaWatson = contexto.Atores
+                    .Where(a => a.PrimeiroNome == "Emma" && a.UltimoNome == "Watson");
+                Console.WriteLine($"Total de atores encontrados: {emmaWatson.Count()}.");
             }
             Console.ReadKey();
         }
