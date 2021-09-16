@@ -16,6 +16,8 @@ namespace Alura.Filmes.App.Dados
 
             // Criação de um valor padrão para a Shadow Property last_update (Só existe no banco e é gerada automaticamente)
             builder.Property<DateTime>("last_update").HasColumnType("datetime").HasDefaultValueSql("getdate()").IsRequired();
+
+            builder.HasIndex(a => a.UltimoNome).HasName("idx_actor_last_name");
         }
     }
 }
