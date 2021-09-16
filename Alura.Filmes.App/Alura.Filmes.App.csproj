@@ -138,6 +138,14 @@
     <Compile Include="Migrations\20210916205504_IndiceAtor.designer.cs">
       <DependentUpon>20210916205504_IndiceAtor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210916211500_UniquePrimeiroUltimoNome.cs" />
+    <Compile Include="Migrations\20210916211500_UniquePrimeiroUltimoNome.designer.cs">
+      <DependentUpon>20210916211500_UniquePrimeiroUltimoNome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210916214539_Classificacao.cs" />
+    <Compile Include="Migrations\20210916214539_Classificacao.designer.cs">
+      <DependentUpon>20210916214539_Classificacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negocio\Idioma.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20210904194820_Inicial.cs" />
