@@ -26,7 +26,10 @@ namespace Alura.Filmes.App.Dados
             builder.HasOne(f => f.IdiomaFalado).WithMany(f => f.FilmesFalados).HasForeignKey("language_id").IsRequired();
             builder.HasOne(f => f.IdiomaOriginal).WithMany(i => i.FilmesOriginais).HasForeignKey("original_language_id");
 
-            builder.Property(f => f.Classificacao).HasColumnType("varchar(10)").HasColumnName("rating");
+            builder.Property(f => f.TextoClassificacao).HasColumnType("varchar(10)").HasColumnName("rating");
+
+            builder.Ignore(f => f.Classificacao);
+
         }
     }
 }
