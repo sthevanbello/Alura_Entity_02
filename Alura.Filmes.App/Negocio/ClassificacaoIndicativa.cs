@@ -8,7 +8,7 @@ namespace Alura.Filmes.App.Negocio
 {
     public enum ClassificacaoIndicativa
     {
-        Livre,           // G
+        Livre,          // G
         MaioresQue10,   // PG
         MaioresQue13,   // PG-13
         MaioresQue14,   // R
