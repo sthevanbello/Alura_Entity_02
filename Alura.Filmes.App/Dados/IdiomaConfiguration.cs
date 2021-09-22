@@ -17,6 +17,7 @@ namespace Alura.Filmes.App.Dados
             builder.Property(i => i.Id).HasColumnName("language_id");
             builder.Property(i => i.Nome).HasColumnName("name").HasColumnType("char(20)").IsRequired();
             builder.Property<DateTime>("last_update").HasColumnType("datetime").HasDefaultValueSql("getdate()").IsRequired();
+            
 
         }
     }

@@ -17,32 +17,19 @@ namespace Alura.Filmes.App
 
                 contexto.LogSQLToConsole();
 
-                var livre = ClassificacaoIndicativa.Livre;
-                var m10 = ClassificacaoIndicativa.MaioresQue10;
-                var m13 = ClassificacaoIndicativa.MaioresQue13;
-                var m14 = ClassificacaoIndicativa.MaioresQue14;
-                var m18 = ClassificacaoIndicativa.MaioresQue18;
-                //string textoLivre = "G";
+                Console.WriteLine("Clients");
 
-                Console.WriteLine(livre.ParaString());
-                Console.WriteLine(m10.ParaString());
-                Console.WriteLine(m13.ParaString());
-                Console.WriteLine(m14.ParaString());
-                Console.WriteLine(m18.ParaString());
+                foreach (var cliente in contexto.Clientes)
+                {
+                    Console.WriteLine(cliente);
+                }
 
-                Console.WriteLine("G".ParaValor());
+                Console.WriteLine("Employers");
 
-
-                //var filme = new Filme();
-                //filme.Titulo = "Senhor dos Anéis";
-                //filme.Duracao = 120;
-                //filme.AnoLancamento = "2000";
-                //filme.Classificacao = ClassificacaoIndicativa.Livre;
-                //filme.IdiomaFalado = contexto.Idiomas.First();
-                //contexto.Entry(filme).Property("last_update").CurrentValue = DateTime.Now;
-
-                //contexto.Filmes.Add(filme);
-                //contexto.SaveChanges();
+                foreach (var funcionario in contexto.Funcionarios)
+                {
+                    Console.WriteLine(funcionario);
+                }
 
             }
             Console.ReadKey();
