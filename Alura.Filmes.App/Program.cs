@@ -14,23 +14,24 @@ namespace Alura.Filmes.App
         {
             using (var contexto = new AluraFilmesContexto())
             {
+                var sql = @"SELECT A.*
+                            FROM actor A
+                                INNER JOIN 
+                            (SELECT TOP 5 A.actor_id, COUNT(*) AS TOTAL
+                            FROM actor AS A
+                                INNER JOIN  film_actor AS FA ON FA.actor_id = A.actor_id
+                            GROUP BY A.actor_id
+                            ORDER BY TOTAL DESC) FILMES ON FILMES.actor_id = A.actor_id";
 
                 contexto.LogSQLToConsole();
 
-                Console.WriteLine("Clients");
+                //var atoresMaisAtuantes = contexto.Atores.Include(f => f.Filmografia).OrderByDescending(f => f.Filmografia.Count).Take(5);
+                var atoresMaisAtuantes = contexto.Atores.FromSql(sql).Include(f => f.Filmografia);
 
-                foreach (var cliente in contexto.Clientes)
+                foreach (var ator in atoresMaisAtuantes)
                 {
-                    Console.WriteLine(cliente);
+                    Console.WriteLine($"O ator {ator.PrimeiroNome} {ator.UltimoNome} atuou em {ator.Filmografia.Count} filmes");
                 }
-
-                Console.WriteLine("Employers");
-
-                foreach (var funcionario in contexto.Funcionarios)
-                {
-                    Console.WriteLine(funcionario);
-                }
-
             }
             Console.ReadKey();
         }
