@@ -17,23 +17,38 @@ namespace Alura.Filmes.App
             using (var contexto = new AluraFilmesContexto())
             {
                 contexto.LogSQLToConsole();
+                //StoredProcedure(contexto);
 
-                var categoria = "Action"; // 36
-                var paramCategoria = new SqlParameter("category_name", categoria);
-                var paramTotal = new SqlParameter 
-                { 
-                    ParameterName = "@total_actors",
-                    Size = 4,
-                    Direction = ParameterDirection.Output
-                };
+                var sql = "INSERT INTO language (name) VALUES ('Idioma 1'), ('Idioma 2'), ('Idioma 3')";
+                var registros = contexto.Database.ExecuteSqlCommand(sql);
+                Console.WriteLine($"Total de registros afetados: {registros}");
 
-                var sql = @"total_actors_from_given_category @category_name, @total_actors OUT";
-
-                var totalAtores = contexto.Database.ExecuteSqlCommand(sql, paramCategoria, paramTotal);
-
-                Console.WriteLine($"O total de atores na categoria {categoria} é de {paramTotal.Value}");
+                Console.WriteLine("=============================================================");
+                
+                var deleteSql = @"DELETE FROM language WHERE name LIKE 'Idioma%' ";
+                var registrosDelete = contexto.Database.ExecuteSqlCommand(deleteSql);
+                Console.WriteLine($"Total de registros afetados: {registrosDelete}");
             }
             Console.ReadKey();
+        }
+
+        private static void StoredProcedure(AluraFilmesContexto contexto)
+        {
+            var categoria = "Action"; // 36
+            var paramCategoria = new SqlParameter("category_name", categoria);
+            var paramTotal = new SqlParameter
+            {
+                ParameterName = "@total_actors",
+                Size = 4,
+                Direction = ParameterDirection.Output
+            };
+
+            var sql = @"total_actors_from_given_category @category_name, @total_actors OUT";
+
+            // Executar a stored procedure
+            contexto.Database.ExecuteSqlCommand(sql, paramCategoria, paramTotal);
+
+            Console.WriteLine($"O total de atores na categoria {categoria} é de {paramTotal.Value}");
         }
 
         private static void GetAtores(IList<FilmeAtor> atores)
